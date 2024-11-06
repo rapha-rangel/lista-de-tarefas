@@ -1,21 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useOpenModal } from "../hooks/useOpenModal"
 
 export default function Alert(){
   const {openAlert, hiddenAlert} = useOpenModal();
-  const [timer, setTimer] = useState<NodeJS.Timeout | undefined>(undefined);
 
   useEffect(() => {
-    clearTimeout(timer);
 
-    const timeout = setTimeout(() => {
+    const timeout =setTimeout(() => {
       hiddenAlert();
     }, 4000);
 
-    setTimer(timeout);
 
     return () => clearTimeout(timeout);
-  }, [openAlert]);
+  }, [hiddenAlert]);
 
 
   return(
