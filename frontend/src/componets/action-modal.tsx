@@ -36,7 +36,7 @@ export function ActionModal({ tarefasArray, setTarefasArray}:ActionModalProps){
         })
       } else{
         try{
-          const response = await axios.post('http://localhost:8800', 
+          const response = await axios.post('https://lista-de-tarefas-production-eca9.up.railway.app/', 
             {
               name:tarefasInfo.nome_tarefas, 
               cost:parseFloat(tarefasInfo.custo), 
@@ -63,7 +63,7 @@ export function ActionModal({ tarefasArray, setTarefasArray}:ActionModalProps){
       
     } else if(actionTypes ===ActionTypes.DEL){
       try{
-        const response = await axios.delete(`http://localhost:8800/${tarefasInfo.id}`);
+        const response = await axios.delete(`https://lista-de-tarefas-production-eca9.up.railway.app/${tarefasInfo.id}`);
         console.log(response)
           if(response.status ===200){
             showAlert({
@@ -83,7 +83,7 @@ export function ActionModal({ tarefasArray, setTarefasArray}:ActionModalProps){
     } else{
       try{
         console.log(tarefasInfo)
-        const response = await axios.put(`http://localhost:8800/${tarefasInfo.id}`, 
+        const response = await axios.put(`https://lista-de-tarefas-production-eca9.up.railway.app/${tarefasInfo.id}`, 
           {
             name:tarefasInfo.nome_tarefas, 
             cost:parseFloat(tarefasInfo.custo), 

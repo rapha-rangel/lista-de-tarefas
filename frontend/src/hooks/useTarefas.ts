@@ -11,7 +11,7 @@ export default function useTarefas(){
   useEffect(()=>{
     const fetchData = async ()=>{
       try{
-        let res = await axios.get<TarefasTypes[]>('http://localhost:8800');
+        let res = await axios.get<TarefasTypes[]>('https://lista-de-tarefas-production-eca9.up.railway.app');
         setData(res?.data)
         console.log(res.data)
       } catch(error){
